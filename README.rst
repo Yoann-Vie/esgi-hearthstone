@@ -1,44 +1,44 @@
-Django is a high-level Python Web framework that encourages rapid development
-and clean, pragmatic design. Thanks for checking it out.
+## Installation du projet
 
-All documentation is in the "``docs``" directory and online at
-https://docs.djangoproject.com/en/stable/. If you're just getting started,
-here's how we recommend you read the docs:
+Toutes les commandes ci-dessous sont à éxecuter à la racine du projet
 
-* First, read ``docs/intro/install.txt`` for instructions on installing Django.
+1. Récupérer les dépendences avec yarn ou npm
+```
+npm install
+```
+OU
+```
+yarn
+```
 
-* Next, work through the tutorials in order (``docs/intro/tutorial01.txt``,
-  ``docs/intro/tutorial02.txt``, etc.).
+2. Compiler les assets avec webpack
+```
+npm run watch
+```
+OU
+```
+yarn watch
+```
 
-* If you want to set up an actual deployment server, read
-  ``docs/howto/deployment/index.txt`` for instructions.
+3. Lancer l'environnement docker du projet
+```
+docker-compose up -d --build
+```
 
-* You'll probably want to read through the topical guides (in ``docs/topics``)
-  next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific
-  problems, and check out the reference (``docs/ref``) for gory details.
+Les éléments suivants sont alors gérés :
+- application django -> [http://localhost:8000](http://localhost:8000)
+- adminer pour visualiser les informations de la BDD -> [http://localhost:8080](http://localhost:8080)
+- base de donnée postgres -> port **5432** (interne au réseau docker, **non bindé vers l'extérieur**)
 
-* See ``docs/README`` for instructions on building an HTML version of the docs.
+Pour se connecter à Adminer, utiliser les identifiants suivants :
+- Système : **PostgreSQL**
+- Serveur : **postgres_django**
+- Utilisateur : **app_hs**
+- Mot de passe : **root**
+- Base de données : **app_hs**
 
-Docs are updated rigorously. If you find any problems in the docs, or think
-they should be clarified in any way, please take 30 seconds to fill out a
-ticket here: https://code.djangoproject.com/newticket
+4. Couper l'environnement docker
+```
+docker-compose down
+```
 
-To get more help:
-
-* Join the ``#django`` channel on irc.freenode.net. Lots of helpful people hang
-  out there. See https://en.wikipedia.org/wiki/Wikipedia:IRC/Tutorial if you're
-  new to IRC.
-
-* Join the django-users mailing list, or read the archives, at
-  https://groups.google.com/group/django-users.
-
-To contribute to Django:
-
-* Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for
-  information about getting involved.
-
-To run Django's test suite:
-
-* Follow the instructions in the "Unit tests" section of
-  ``docs/internals/contributing/writing-code/unit-tests.txt``, published online at
-  https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#running-the-unit-tests
