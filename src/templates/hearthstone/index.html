@@ -1,10 +1,8 @@
 {% extends "hearthstone/base.html" %}
 
 {% block content %}
-
-<!-- Jumbotron Header -->
-<header class="jumbotron my-4">
+<div>
   <h1 class="display-3">Bienvenue sur Hearthstone</h1>
-</header>
-
+  <a href="{% url 'getCards' %}">Obtenir des cartes</a>
+</div>
 {% endblock content %}

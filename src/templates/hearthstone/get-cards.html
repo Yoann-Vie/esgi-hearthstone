@@ -1,0 +1,19 @@
+
+{% extends "hearthstone/base.html" %}
+
+{% block content %}
+<div class="row my-5">
+  <div class="col-md-12">
+    <h1>Voila 6 nouvelles cartes pour composer vos decks</h1>
+
+    <div class="row">
+      {% for card in pack_cards %}
+      <div class="col-4">
+          <img src="{{ card.img }}" alt="{{ card.name }}">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
