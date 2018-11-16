@@ -37,7 +37,18 @@ Pour se connecter à Adminer, utiliser les identifiants suivants :
 - Mot de passe : **root**
 - Base de données : **app_hs**
 
-4. Couper l'environnement docker
+4. Lancer les migrations
+```
+docker exec -it server_django python3 manage.py migrate
+```
+
+5. Créer un super utilisateur pour accéder à l'espace d'administration
+```
+docker exec -it server_django python3 manage.py createsuperuser
+```
+-> [http://localhost:8000/admin](http://localhost:8000/admin)
+
+5. Couper l'environnement docker
 ```
 docker-compose down
 ```
