@@ -17,3 +17,5 @@ tests/.coverage
 build/
 tests/report/
 .idea/
+webpack-stats.json
+assets/webpack_bundles/
