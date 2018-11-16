@@ -48,7 +48,12 @@ docker exec -it server_django python3 manage.py createsuperuser
 ```
 -> [http://localhost:8000/admin](http://localhost:8000/admin)
 
-5. Couper l'environnement docker
+6. Charger les fixtures
+```
+docker exec -it server_django python3 manage.py loaddata cards.yaml 
+```
+
+7. Couper l'environnement docker
 ```
 docker-compose down
 ```
