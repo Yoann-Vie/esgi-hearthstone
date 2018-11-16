@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  adminer_django:
+    container_name: adminer_django
+    image: adminer:latest
+    restart: always
+    environment:
+      ADMINER_PLUGINS: tables-filter tinymce
+      ADMINER_DESIGN: pepa-linha
+    ports:
+      - 8080:8080
+
+  server_django:
+    container_name: server_django
+    build: ./
+    restart: always
+    volumes:
+      - ./:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres_django
+    command: bash -c "python3 manage.py runserver 0.0.0.0:8000 && python3 manage.py loaddata card"
+
+  postgres_django:
+    container_name: postgres_django
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: app_hs
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: app_hs
+    volumes:
+      - /var/lib/postgresql/data
