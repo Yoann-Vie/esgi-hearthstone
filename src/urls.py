@@ -1,17 +1,12 @@
 from django.urls import path, include
-
+from django.conf.urls import include, url
 from . import views
 
-from django.contrib import admin
-
-
 urlpatterns = [
+    url(r'^accounts/', include('django_registration.backends.one_step.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
     path('', views.home, name='home'),
+    path('accounts/register/', views.register, name='register'),
     path('get-cards', views.getCards, name='getCards'),
     path('my-cards', views.myCards, name='myCards'),
-]
-
-#Add Django site authentication urls (for login, logout, password management)
-urlpatterns += [
-    path('accounts/', include('django.contrib.auth.urls')),
 ]

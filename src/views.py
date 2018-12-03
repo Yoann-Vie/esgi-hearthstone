@@ -6,6 +6,9 @@ from .models import Card, CardUser
 def home(request):
     return render(request, 'hearthstone/index.html', context = { 'title': 'Accueil' })
 
+def register(request):
+    return render(request, 'accounts/register/', context = { 'title': 'Register' })
+
 def getCards(request):
     earned_cards = []
     cards_count = Card.objects.all().count()
