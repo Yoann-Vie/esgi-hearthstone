@@ -26,7 +26,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
-    'src.apps.HearthstoneConfig',
+    'game.apps.HearthstoneConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Hearthstone.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'src/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'game/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

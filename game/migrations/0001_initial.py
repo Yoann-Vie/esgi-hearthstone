@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
             name='CardUser',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('card', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='src.Card')),
+                ('card', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='game.Card')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
@@ -47,8 +47,8 @@ class Migration(migrations.Migration):
             name='CardDeck',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('card', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='src.Card')),
-                ('deck', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='src.Deck')),
+                ('card', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='game.Card')),
+                ('deck', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='game.Deck')),
             ],
         ),
     ]

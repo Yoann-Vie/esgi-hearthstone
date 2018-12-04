@@ -1,16 +1,16 @@
-- model: src.card
+- model: game.card
   fields:
       name: Anathème crépitant
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/BCON_021.png
       type: Spell
 
-- model: src.card
+- model: game.card
   fields:
       name: Attaque sournoise
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_072.png
       type: Spell
 
-- model: src.card
+- model: game.card
   fields:
       name: Avatar de la pièce
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/GAME_002.png
@@ -18,62 +18,62 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Éclat lunaire
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_008.png
       type: Spell
 
-- model: src.card
+- model: game.card
   fields:
       name: Excès de mana
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_013t.png
       type: Spell
 
-- model: src.card
+- model: game.card
   fields:
       name: Folie en bouteille
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/BCON_024.png
       type: Spell
 
-- model: src.card
+- model: game.card
   fields:
       name: Guérison ancestrale
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_041.png
       type: Spell
 
-- model: src.card
+- model: game.card
   fields:
       name: Image miroir
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_mirror.png
       type: Minion
       health: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Innervation
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_169.png
       type: Spell
 
-- model: src.card
+- model: game.card
   fields:
       name: La pièce
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/GAME_005.png
       type: Spell
 
-- model: src.card
+- model: game.card
   fields:
       name: Pacte sacrificiel
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/NEW1_003.png
       type: Spell
 
-- model: src.card
+- model: game.card
   fields:
       name: Puissance totémique
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_244.png
       type: Spell
 
-- model: src.card
+- model: game.card
   fields:
       name: Archère elfe
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_189.png
@@ -82,42 +82,42 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Attaque pernicieuse
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_075.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Bénédiction de puissance
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_087.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Bombe fumigène
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/BCON_016.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Charge
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_103.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Châtiment sacré
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS1_130.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Clerc de Comté-du-Nord
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_235.png
@@ -126,14 +126,14 @@
       health: 3
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Corruption
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_063.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Docteur vaudou
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_011.png
@@ -142,7 +142,7 @@
       health: 1
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Éclaireur murloc
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_506a.png
@@ -151,7 +151,7 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Écumeur murloc
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_168.png
@@ -160,42 +160,42 @@
       health: 1
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Feu de l’âme
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_308.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Griffe
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_005.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Horion de givre
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_037.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Humilité
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_360.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Image miroir
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_027.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Justice de la Lumière
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_091.png
@@ -203,7 +203,7 @@
       price: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Lame pernicieuse
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_082.png
@@ -211,7 +211,7 @@
       price: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Loup des bois
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/DS1_175.png
@@ -220,21 +220,21 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Main de protection
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_371.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Main de salut
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/BCON_012.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Marcheur du Vide
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_065.png
@@ -243,21 +243,21 @@
       health: 3
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Marque du chasseur
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_084.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Mot de pouvoir Bouclier
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_004.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Mouton
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_tk1.png
@@ -266,7 +266,7 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Oracle sinistrécaille
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_508.png
@@ -275,7 +275,7 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Petit dragon mécanique
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_025t.png
@@ -284,28 +284,28 @@
       health: 1
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Pistage
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/DS1_184.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Poison mortel
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_074.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Projectiles des Arcanes
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_277.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Recrue de la Main d’argent
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_101t.png
@@ -314,7 +314,7 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Sanglier
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_boar.png
@@ -323,7 +323,7 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Sanglier brocheroc
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_171.png
@@ -332,7 +332,7 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Soldat de Comté-de-l’Or
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS1_042.png
@@ -341,7 +341,7 @@
       health: 2
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Squelette
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/skele11.png
@@ -350,14 +350,14 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Tir des Arcanes
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/DS1_185.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Totem de courroux de l’air
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_052.png
@@ -365,7 +365,7 @@
       price: 1
       health: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Totem de griffes de pierre
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_051.png
@@ -373,7 +373,7 @@
       price: 1
       health: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Totem de soins
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/NEW1_009.png
@@ -381,7 +381,7 @@
       price: 1
       health: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Totem incendiaire
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_050.png
@@ -390,63 +390,63 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Tourbillon
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_400.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Vision télépathique
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_003.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Voile de mort
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_302.png
       type: Spell
       price: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Appel totémique
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_049.png
       type: Hero Power
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Arme croque-roc
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_045.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Assommer
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_581.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Attaque mentale
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/DS1_233.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Changeforme
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_017.png
       type: Hero Power
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Chasse-marée murloc
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_506.png
@@ -455,14 +455,14 @@
       health: 1
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Connexion
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_056.png
       type: Hero Power
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Crocilisque des rivières
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_120.png
@@ -471,91 +471,91 @@
       health: 3
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Croissance sauvage
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_013.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Éclair de givre
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_024.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Enchaînement
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_114.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Esprit divin
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_236.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Esprit généreux
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/BCON_015.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Exécution
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_108.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Explosion de feu
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_034.png
       type: Hero Power
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Explosion des Arcanes
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_025.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Fin tireur
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/BCON_001.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Frappe héroïque
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_105.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Furie des vents
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_039.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Gain d’armure !
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_102.png
       type: Hero Power
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Géomancien kobold
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_142.png
@@ -564,7 +564,7 @@
       health: 2
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Grunt loup-de-givre
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_121.png
@@ -573,7 +573,7 @@
       health: 2
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Guerrier branchie-bleue
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_173.png
@@ -582,7 +582,7 @@
       health: 1
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Ingénieur novice
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_015.png
@@ -591,14 +591,14 @@
       health: 1
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Kriss
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_278.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Limon des marais acide
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_066.png
@@ -607,42 +607,42 @@
       health: 2
       attack: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Lumière sacrée
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_089.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Maîtrise des dagues
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_083b.png
       type: Hero Power
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Marque du fauve
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_009.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Mot de l’ombre Douleur
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_234.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: NOOOOOOOOOOOON !
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/GAME_006.png
       type: Spell
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Raptor Rougefange
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_172.png
@@ -651,21 +651,21 @@
       health: 2
       attack: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Renfort
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_101.png
       type: Hero Power
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Soins inférieurs
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS1h_001.png
       type: Hero Power
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Succube
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_306.png
@@ -674,14 +674,14 @@
       health: 3
       attack: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Tir assuré
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/DS1h_292.png
       type: Hero Power
       price: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Totem Langue de feu
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_565.png
@@ -689,14 +689,14 @@
       price: 2
       health: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Champion de la nature
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/BCON_008.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Chasseuse de Tranchebauge
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_196.png
@@ -705,7 +705,7 @@
       health: 3
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Chef de raid
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_122.png
@@ -714,7 +714,7 @@
       health: 2
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Chevaucheur de loup
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_124.png
@@ -723,7 +723,7 @@
       health: 1
       attack: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Clerc du Soleil brisé
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_019.png
@@ -732,21 +732,21 @@
       health: 2
       attack: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Compagnon animal
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/NEW1_031.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Drain de vie
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_061.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Enragé du magma
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_118.png
@@ -755,7 +755,7 @@
       health: 1
       attack: 5
 
-- model: src.card
+- model: game.card
   fields:
       name: Épée longue flamboyante
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/BCON_026.png
@@ -763,14 +763,14 @@
       price: 3
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Éventail de couteaux
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_129.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Fusilier de Forgefer
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_141.png
@@ -779,7 +779,7 @@
       health: 2
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Grizzly Ferpoil
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_125.png
@@ -788,7 +788,7 @@
       health: 3
       attack: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Hache de guerre embrasée
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_106.png
@@ -796,14 +796,14 @@
       price: 3
       attack: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Intelligence des Arcanes
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_023.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Leokk
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/NEW1_033.png
@@ -812,7 +812,7 @@
       health: 4
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Mage de Dalaran
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_582.png
@@ -821,14 +821,14 @@
       health: 4
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Maîtrise du blocage
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_606.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Misha
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/NEW1_032.png
@@ -837,21 +837,21 @@
       health: 4
       attack: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Mot de l’ombre Mort
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_622.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Nova de givre
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_026.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Officier chanteguerre
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_084.png
@@ -860,14 +860,14 @@
       health: 3
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Ordre de tuer
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_539.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Patriarche dos-argenté
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_127.png
@@ -876,14 +876,14 @@
       health: 4
       attack: 1
 
-- model: src.card
+- model: game.card
   fields:
       name: Rugissement sauvage
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_011.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Souffleur
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/NEW1_034.png
@@ -892,42 +892,42 @@
       health: 2
       attack: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Toucher guérisseur
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_007.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Trait de l’ombre
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_057.png
       type: Spell
       price: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Balayage
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_012.png
       type: Spell
       price: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Bénédiction des rois
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_092.png
       type: Spell
       price: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Boule de feu
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_029.png
       type: Spell
       price: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Championne en vrai-argent
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_097.png
@@ -935,7 +935,7 @@
       price: 4
       attack: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Chevalier de Hurlevent
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_131.png
@@ -944,14 +944,14 @@
       health: 5
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Consécration
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_093.png
       type: Spell
       price: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Élémentaire d’eau
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_033.png
@@ -960,21 +960,21 @@
       health: 6
       attack: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Flammes infernales
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_062.png
       type: Spell
       price: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Flèches multiples
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/DS1_183.png
       type: Spell
       price: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Gueule d’acier des oasis
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_119.png
@@ -983,7 +983,7 @@
       health: 7
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Inventrice gnome
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_147.png
@@ -992,7 +992,7 @@
       health: 4
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Maître-bouclier de Sen’jin
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_179.png
@@ -1001,7 +1001,7 @@
       health: 5
       attack: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Maître-chien
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/DS1_070.png
@@ -1010,21 +1010,21 @@
       health: 3
       attack: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Maléfice
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_246.png
       type: Spell
       price: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Marteau de courroux
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_094.png
       type: Spell
       price: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Mécano de petit dragon
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_025.png
@@ -1033,14 +1033,14 @@
       health: 4
       attack: 2
 
-- model: src.card
+- model: game.card
   fields:
       name: Métamorphose
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_022.png
       type: Spell
       price: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Ogre-magi
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/CS2_197.png
@@ -1049,7 +1049,7 @@
       health: 4
       attack: 4
 
-- model: src.card
+- model: game.card
   fields:
       name: Parlevent
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/EX1_587.png
@@ -1058,7 +1058,7 @@
       health: 3
       attack: 3
 
-- model: src.card
+- model: game.card
   fields:
       name: Soldat d’élite kor’kron
       img: http://wow.zamimg.com/images/hearthstone/cards/frfr/original/NEW1_011.png
