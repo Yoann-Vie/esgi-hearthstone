@@ -11,4 +11,5 @@ urlpatterns = [
     path('my-cards', views.myCards, name='myCards'),
     path('my-decks', views.myDecks, name='myDecks'),
     path('deck/new', views.newDeck, name='newDeck'),
+    path('deck/edit/<int:id>/', views.updateDeck, name='updateDeck'),
 ]

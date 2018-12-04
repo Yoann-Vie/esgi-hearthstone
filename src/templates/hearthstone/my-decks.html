@@ -11,7 +11,7 @@
       {% for deck in user_decks %}
       <div class="col-4">
           <p>{{ deck.name }}</p>
-          <a href="">Modifier</a>
+          <a href="{% url 'updateDeck' deck.id %}">Modifier</a>
           <a href="">Supprimer</a>
       </div>
       {% endfor %}

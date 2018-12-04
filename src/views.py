@@ -53,3 +53,20 @@ def newDeck(request):
         form = DeckForm()
 
     return render(request, 'hearthstone/form-deck.html', {'form': form})
+
+def updateDeck(request, id=0):
+    if id == 0:
+        return redirect('myDecks')
+
+    deck = Deck.objects.get(pk = id)
+    if request.POST:
+        form_values = request.POST.copy()
+        form_values.update({'user': request.user.id})
+        form = DeckForm(form_values, instance=deck)
+        if form.is_valid():
+            form.save()
+            return redirect('myDecks')
+    else:
+        form = DeckForm(instance=deck)
+
+    return render(request, 'hearthstone/form-deck.html', {'form': form})
