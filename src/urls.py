@@ -12,4 +12,7 @@ urlpatterns = [
     path('my-decks', views.myDecks, name='myDecks'),
     path('deck/new', views.newDeck, name='newDeck'),
     path('deck/edit/<int:id>/', views.updateDeck, name='updateDeck'),
+    path('deck/delete/<int:id>/', views.deleteDeck, name='deleteDeck'),
+    path('deck/add/<int:cardId>/<int:deckId>', views.addCardToDeck, name='addCardToDeck'),
+    path('deck/remove/<int:cardId>/<int:deckId>', views.removeCardFromDeck, name='removeCardFromDeck'),
 ]

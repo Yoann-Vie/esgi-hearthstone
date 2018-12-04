@@ -12,7 +12,7 @@
       <div class="col-4">
           <p>{{ deck.name }}</p>
           <a href="{% url 'updateDeck' deck.id %}">Modifier</a>
-          <a href="">Supprimer</a>
+          <a href="{% url 'deleteDeck' deck.id %}">Supprimer</a>
       </div>
       {% endfor %}
     </div>

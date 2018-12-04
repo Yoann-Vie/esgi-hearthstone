@@ -12,6 +12,28 @@
         <label for="{{ form.name.id_for_label }}">Name :</label>
         {{ form.name }}
       </div>
+
+      {% if deck_id %}
+      <div class="row">
+        <p>Cartes du deck</p>
+        {% for card in deck_cards %}
+        <div class="col-4">
+          <img src="{{ card.img }}" alt="{{ card.name }}" width="40px">
+          <a href="{% url 'removeCardFromDeck' card.id deck_id %}">Retirer</a>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+        <p>Cartes disponibles</p>
+        {% for card in remaining_cards %}
+        <div class="col-4">
+          <img src="{{ card.img }}" alt="{{ card.name }}" width="40px">
+          <a href="{% url 'addCardToDeck' card.id deck_id %}">Ajouter</a>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
       <input type="submit" value="Submit" />
     </form>
   </div>

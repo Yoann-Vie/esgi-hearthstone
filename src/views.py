@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from random import randint
-from .models import Card, CardUser, Deck
+from .models import Card, CardUser, Deck, CardDeck
 from .forms import DeckForm
 
 def home(request):
@@ -69,4 +69,52 @@ def updateDeck(request, id=0):
     else:
         form = DeckForm(instance=deck)
 
-    return render(request, 'hearthstone/form-deck.html', {'form': form})
+    deck_cards = []
+    already_added = []
+    associations = CardDeck.objects.all().filter(deck_id = id)
+    for association in associations:
+        deck_card = association.card
+        already_added.append(deck_card.id)
+        deck_cards.append(deck_card)
+
+    remaining_cards = []
+    associations = CardUser.objects.all().filter(user_id = request.user.id)
+    for association in associations:
+        user_card = association.card
+        if user_card.id not in already_added:
+            remaining_cards.append(user_card)
+
+    return render(request, 'hearthstone/form-deck.html', {
+        'form': form,
+        'remaining_cards': remaining_cards,
+        'deck_cards': deck_cards,
+        'deck_id': id
+    })
+
+def deleteDeck(request, id=0):
+    if id == 0:
+        return redirect('myDecks')
+
+    deck = Deck.objects.get(pk = id)
+    deck.delete()
+
+    return redirect('myDecks')
+
+def addCardToDeck(request, cardId=0, deckId=0):
+    if cardId == 0 or deckId == 0:
+        return redirect('myDecks')
+
+    deck_card = CardDeck(card = Card.objects.get(pk = cardId), deck = Deck.objects.get(pk = deckId))
+    deck_card.save()
+
+    return redirect('updateDeck', id=deckId)
+
+def removeCardFromDeck(request, cardId=0, deckId=0):
+    if cardId == 0 or deckId == 0:
+        return redirect('myDecks')
+
+    deck_card = CardDeck.objects.get(card = Card.objects.get(pk = cardId), deck = Deck.objects.get(pk = deckId))
+    deck_card.delete()
+
+    return redirect('updateDeck', id=deckId)
+
