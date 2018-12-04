@@ -9,4 +9,6 @@ urlpatterns = [
     path('accounts/register/', views.register, name='register'),
     path('get-cards', views.getCards, name='getCards'),
     path('my-cards', views.myCards, name='myCards'),
+    path('my-decks', views.myDecks, name='myDecks'),
+    path('deck/new', views.newDeck, name='newDeck'),
 ]

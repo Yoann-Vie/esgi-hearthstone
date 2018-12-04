@@ -1,0 +1,20 @@
+
+{% extends "hearthstone/base.html" %}
+
+{% block content %}
+<div class="row my-5">
+  <div class="col-md-12">
+    <h2>Créer votre nouveau deck</h2>
+    <form method="post">{% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="fieldWrapper">
+        {{ form.name.errors }}
+        <label for="{{ form.name.id_for_label }}">Name :</label>
+        {{ form.name }}
+      </div>
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from random import randint
-from .models import Card, CardUser
+from .models import Card, CardUser, Deck
+from .forms import DeckForm
 
 def home(request):
     return render(request, 'hearthstone/index.html', context = { 'title': 'Accueil' })
@@ -34,3 +35,21 @@ def myCards(request):
         user_cards.append(user_card)
 
     return render(request, 'hearthstone/my-cards.html', { 'title': 'Mes cartes', 'user_cards': user_cards })
+
+def myDecks(request):
+    user_decks = Deck.objects.all().filter(user_id = request.user.id)
+
+    return render(request, 'hearthstone/my-decks.html', { 'title': 'Mes decks', 'user_decks': user_decks })
+
+def newDeck(request):
+    if request.POST:
+        form_values = request.POST.copy()
+        form_values.update({'user': request.user.id})
+        form = DeckForm(form_values)
+        if form.is_valid():
+            form.save()
+            return redirect('myDecks')
+    else:
+        form = DeckForm()
+
+    return render(request, 'hearthstone/form-deck.html', {'form': form})

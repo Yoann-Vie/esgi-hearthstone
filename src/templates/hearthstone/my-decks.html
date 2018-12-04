@@ -1,0 +1,22 @@
+
+{% extends "hearthstone/base.html" %}
+
+{% block content %}
+<div class="row my-5">
+  <div class="col-md-12">
+    <h2>Voici toutes vos cartes</h2>
+    <a href="{% url 'newDeck' %}">Créer un nouveau deck</a>
+
+    <div class="row">
+      {% for deck in user_decks %}
+      <div class="col-4">
+          <p>{{ deck.name }}</p>
+          <a href="">Modifier</a>
+          <a href="">Supprimer</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
