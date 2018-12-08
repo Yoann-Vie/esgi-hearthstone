@@ -20,3 +20,4 @@ tests/report/
 webpack-stats.json
 assets/webpack_bundles/
 yarn.lock
+/tests/

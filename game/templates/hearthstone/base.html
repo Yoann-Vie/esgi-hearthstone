@@ -38,7 +38,8 @@
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{# url 'profile' #}">Salut {{ request.user.username }}</a>
+          <a class="nav-link" href="{# url 'profile' #}">Welcome {{ request.user.username }}</a>
+          <span>You have currently {{ request.user.player.gold }} GOLDS !</span>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'myCards' %}">Cartes</a>

@@ -10,11 +10,20 @@ def home(request):
 def register(request):
     return render(request, 'accounts/register/', context = { 'title': 'Register' })
 
+def initCards(request):
+    earned_cards = []
+    if request.user.is_authenticated:
+        for i in range(30):
+            card = Card.objects.all()[i]
+            earned_cards.append(card)
+            cardUser = CardUser(card=card, user = request.user)
+            cardUser.save()
+
 def getCards(request):
     earned_cards = []
     cards_count = Card.objects.all().count()
     if request.user.is_authenticated:
-        for i in range(6):
+        for i in range(8):
             random_index = randint(0, cards_count - 1)
             card = Card.objects.all()[random_index]
             earned_cards.append(card)
