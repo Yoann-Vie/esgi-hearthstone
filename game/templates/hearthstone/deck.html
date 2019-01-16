@@ -4,12 +4,13 @@
 {% block content %}
 <div class="row my-5">
   <div class="col-md-12">
-    <h1>Voila 8 nouvelles cartes pour composer vos decks</h1>
+    <h2>Deck "{{ deck.name }}" by {{ user.username }}</h2>
 
     <div class="row">
-      {% for card in pack_cards %}
+      <p>List of the cards</p>
+      {% for card in deck_cards %}
       <div class="col-4">
-          <img src="{{ card.img }}" alt="{{ card.name }}">
+        <img src="{{ card.img }}" alt="{{ card.name }}">
       </div>
       {% endfor %}
     </div>

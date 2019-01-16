@@ -4,12 +4,12 @@
 {% block content %}
 <div class="row my-5">
   <div class="col-md-12">
-    <h1>Voila 8 nouvelles cartes pour composer vos decks</h1>
+    <h2>List of all the players</h2>
 
     <div class="row">
-      {% for card in pack_cards %}
+      {% for user in users %}
       <div class="col-4">
-          <img src="{{ card.img }}" alt="{{ card.name }}">
+        <a href="{% url 'showPlayer' user.id %}">{{ user.username }}</a>
       </div>
       {% endfor %}
     </div>

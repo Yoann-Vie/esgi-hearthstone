@@ -7,15 +7,6 @@ class Player(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     gold = models.PositiveIntegerField(default=200)
 
-@receiver(post_save, sender=User)
-def create_user_player(sender, instance, created, **kwargs):
-    if created:
-        Player.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_player(sender, instance, **kwargs):
-    instance.player.save()
-
 class Deck(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
@@ -45,3 +36,22 @@ class CardUser(models.Model):
 class CardDeck(models.Model):
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
     deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
+
+#Signals When user is create
+@receiver(post_save, sender=User)
+def create_user_player(sender, instance, created, **kwargs):
+    if created:
+        Player.objects.create(user=instance)
+        firstDeck = Deck.objects.create(user=instance,name='Deck de Base')
+        earned_cards = []
+        for i in range(30):
+            card = Card.objects.all()[i]
+            earned_cards.append(card)
+            cardUser = CardUser(user=instance,card=card)
+            deckUser = CardDeck(card=card,deck=firstDeck)
+            cardUser.save()
+            deckUser.save()
+
+@receiver(post_save, sender=User)
+def save_user_player(sender, instance, **kwargs):
+    instance.player.save()

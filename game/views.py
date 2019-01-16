@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.models import User
 from random import randint
 from .models import Card, CardUser, Deck, CardDeck
 from .forms import DeckForm
@@ -10,19 +11,33 @@ def home(request):
 def register(request):
     return render(request, 'accounts/register/', context = { 'title': 'Register' })
 
-def initCards(request):
-    earned_cards = []
-    if request.user.is_authenticated:
-        for i in range(30):
-            card = Card.objects.all()[i]
-            earned_cards.append(card)
-            cardUser = CardUser(card=card, user = request.user)
-            cardUser.save()
+def players(request):
+    users = User.objects.all()
+    return render(request, 'hearthstone/players.html', { 'title': 'List of all players', 'users': users })
+
+def showPlayer(request,id=0):
+    user = User.objects.get(id=id)
+    user_decks = Deck.objects.all().filter(user_id=id)
+    return render(request, 'hearthstone/player.html', { 'title': 'Page of '+user.username, 'user': user, 'user_decks': user_decks })
+
+def showPlayerDeck(request,userId=0,deckId=0):
+    user = User.objects.get(id=userId)
+    deck = Deck.objects.get(id=deckId)
+    deck_cards = []
+    associations = CardDeck.objects.all().filter(deck_id =deckId)
+    for association in associations:
+        deck_card = association.card
+        deck_cards.append(deck_card)
+
+    return render(request, 'hearthstone/deck.html', { 'title': 'Deck of '+user.username, 'user': user, 'deck': deck, 'deck_cards': deck_cards })
+
 
 def getCards(request):
     earned_cards = []
     cards_count = Card.objects.all().count()
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and request.user.player.gold >= 100:
+        request.user.player.gold = request.user.player.gold-100
+        request.user.save()
         for i in range(8):
             random_index = randint(0, cards_count - 1)
             card = Card.objects.all()[random_index]
@@ -30,7 +45,7 @@ def getCards(request):
             cardUser = CardUser(card=card, user = request.user)
             cardUser.save()
     else:
-        messages.warning(request, f'Vous devez être connecté pour obtenir des cartes')
+        messages.warning(request, f'Vous devez être connecté pour obtenir des cartes ou avoir asser d\'argent, pauvre')
         return redirect('home')
 
     return render(request, 'hearthstone/get-cards.html', { 'title': 'Nouvelles cartes', 'pack_cards': earned_cards })
@@ -44,6 +59,16 @@ def myCards(request):
         user_cards.append(user_card)
 
     return render(request, 'hearthstone/my-cards.html', { 'title': 'Mes cartes', 'user_cards': user_cards })
+
+def sellCard(request,id=0,price=0):
+    if id == 0:
+        return redirect('myCards')
+
+    card = Card.objects.get(pk = id)
+    card.delete()
+    request.user.player.gold = request.user.player.gold+price
+    request.user.save()
+    return redirect('myCards')
 
 def myDecks(request):
     user_decks = Deck.objects.all().filter(user_id = request.user.id)

@@ -5,12 +5,17 @@
 <div class="row my-5">
   <div class="col-md-12">
     <h2>Voici toutes vos cartes</h2>
-    <a href="{% url 'getCards' %}">Obtenir de nouvelles cartes</a>
+    <a href="{% url 'getCards' %}">Obtenir des cartes (Cost 100 GOLDS)</a>
 
     <div class="row">
       {% for card in user_cards %}
       <div class="col-4">
           <img src="{{ card.img }}" alt="{{ card.name }}">
+        {% if card.price != NONE  %}
+        <a href="{% url 'sellCard' card.id card.price %}">Sell for {{ card.price }} GOLD</a>
+        {% else %}
+        <a href="{% url 'sellCard' card.id 0 %}">Sell for 0 GOLD</a>
+        {% endif %}
       </div>
       {% endfor %}
     </div>
