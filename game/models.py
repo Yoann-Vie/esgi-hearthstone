@@ -10,6 +10,7 @@ class Player(models.Model):
 class Deck(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    selection = models.PositiveIntegerField(default=0, blank=True)
 
     def __str__(self):
         return self.name
@@ -31,6 +32,8 @@ class Card(models.Model):
 class CardUser(models.Model):
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    price = models.PositiveIntegerField(default=0, blank=True)
+    state = models.PositiveIntegerField(default=0, blank=True)
 
 
 class CardDeck(models.Model):
@@ -42,7 +45,7 @@ class CardDeck(models.Model):
 def create_user_player(sender, instance, created, **kwargs):
     if created:
         Player.objects.create(user=instance)
-        firstDeck = Deck.objects.create(user=instance,name='Deck de Base')
+        firstDeck = Deck.objects.create(user=instance,name='Deck de Base',selection=1)
         earned_cards = []
         for i in range(30):
             card = Card.objects.all()[i]

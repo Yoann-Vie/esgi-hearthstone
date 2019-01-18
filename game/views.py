@@ -8,6 +8,114 @@ from .forms import DeckForm
 def home(request):
     return render(request, 'hearthstone/index.html', context = { 'title': 'Accueil' })
 
+def training(request):
+    return render(request, 'hearthstone/training.html', context = { 'title': 'The training room' })
+
+def recruit(request):
+    result = 0
+    attack = 0
+    health = 0
+    leDeck = Deck.objects.get(user_id = request.user.id,selection=1)
+    associations = CardDeck.objects.all().filter(deck_id =leDeck.id)
+    for association in associations:
+        deck_card = association.card
+        if deck_card.attack is not None:
+            attack += deck_card.attack
+        if deck_card.health is not None:
+            health += deck_card.health
+    if attack >= 30 and health >= 20:
+        result = 1
+        request.user.player.gold += 2
+        request.user.save()
+
+    return render(request, 'hearthstone/result.html', context = { 'title': 'The training room', 'result': result})
+
+def veteran(request):
+    result = 0
+    attack = 0
+    health = 0
+    leDeck = Deck.objects.get(user_id = request.user.id,selection=1)
+    associations = CardDeck.objects.all().filter(deck_id =leDeck.id)
+    for association in associations:
+        deck_card = association.card
+        if deck_card.attack is not None:
+            attack += deck_card.attack
+        if deck_card.health is not None:
+            health += deck_card.health
+    if attack >= 40 and health >= 30:
+        result = 1
+        request.user.player.gold += 4
+        request.user.save()
+
+    return render(request, 'hearthstone/result.html', context = { 'title': 'The training room', 'result': result})
+
+def champion(request):
+    result = 0
+    attack = 0
+    health = 0
+    leDeck = Deck.objects.get(user_id = request.user.id,selection=1)
+    associations = CardDeck.objects.all().filter(deck_id =leDeck.id)
+    for association in associations:
+        deck_card = association.card
+        if deck_card.attack is not None:
+            attack += deck_card.attack
+        if deck_card.health is not None:
+            health += deck_card.health
+    if attack >= 50 and health >= 40:
+        result = 1
+        request.user.player.gold += 8
+        request.user.save()
+
+    return render(request, 'hearthstone/result.html', context = { 'title': 'The training room', 'result': result})
+
+def legend(request):
+    result = 0
+    attack = 0
+    health = 0
+    leDeck = Deck.objects.get(user_id = request.user.id,selection=1)
+    associations = CardDeck.objects.all().filter(deck_id =leDeck.id)
+    for association in associations:
+        deck_card = association.card
+        if deck_card.attack is not None:
+            attack += deck_card.attack
+        if deck_card.health is not None:
+            health += deck_card.health
+    if attack >= 60 and health >= 50:
+        result = 1
+        request.user.player.gold += 16
+        request.user.save()
+
+    return render(request, 'hearthstone/result.html', context = { 'title': 'The training room', 'result': result})
+
+def battle(request,id=0):
+    result = 0
+    myAttack = 0
+    myHealth = 0
+    hisAttack = 0
+    hisHealth = 0
+    myDeck = Deck.objects.get(user_id = request.user.id,selection=1)
+    hisDeck = Deck.objects.get(user_id = id,selection=1)
+    myAssociations = CardDeck.objects.all().filter(deck_id =myDeck.id)
+    for association in myAssociations:
+        deck_card = association.card
+        if deck_card.attack is not None:
+            myAttack += deck_card.attack
+        if deck_card.health is not None:
+            myHealth += deck_card.health
+    hisAssociations = CardDeck.objects.all().filter(deck_id =hisDeck.id)
+    for association in hisAssociations:
+        deck_card = association.card
+        if deck_card.attack is not None:
+            hisAttack += deck_card.attack
+        if deck_card.health is not None:
+            hisHealth += deck_card.health
+    if myAttack > hisAttack and myHealth > hisHealth:
+        result = 1
+        request.user.player.gold += 20
+        request.user.save()
+
+    return render(request, 'hearthstone/result.html', context = { 'title': 'The training room', 'result': result})
+
 def register(request):
     return render(request, 'accounts/register/', context = { 'title': 'Register' })
 
@@ -30,7 +138,6 @@ def showPlayerDeck(request,userId=0,deckId=0):
         deck_cards.append(deck_card)
 
     return render(request, 'hearthstone/deck.html', { 'title': 'Deck of '+user.username, 'user': user, 'deck': deck, 'deck_cards': deck_cards })
-
 
 def getCards(request):
     earned_cards = []
@@ -56,7 +163,7 @@ def myCards(request):
 
     for association in associations:
         user_card = association.card
-        user_cards.append(user_card)
+        user_cards.append([user_card,association])
 
     return render(request, 'hearthstone/my-cards.html', { 'title': 'Mes cartes', 'user_cards': user_cards })
 
@@ -131,6 +238,15 @@ def deleteDeck(request, id=0):
 
     deck = Deck.objects.get(pk = id)
     deck.delete()
+
+    return redirect('myDecks')
+
+def selectDeck(request, id=0):
+    if id == 0:
+        return redirect('myDecks')
+
+    Deck.objects.all().filter(user_id = request.user.id,selection=1).update(selection=0)
+    Deck.objects.all().filter(user_id = request.user.id,id=id).update(selection=1)
 
     return redirect('myDecks')
 

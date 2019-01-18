@@ -1,0 +1,23 @@
+
+{% extends "hearthstone/base.html" %}
+
+{% block content %}
+<div class="row my-5">
+  <div class="col-md-12">
+    <h2>The result is:</h2>
+
+    <div class="row">
+      {% if result == 1 %}
+      <div class="col-4">
+        <p>You win !</p>
+      </div>
+      {% else %}
+      <div class="col-4">
+        <p>You loose !</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

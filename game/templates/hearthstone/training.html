@@ -1,0 +1,26 @@
+
+{% extends "hearthstone/base.html" %}
+
+{% block content %}
+<div class="row my-5">
+  <div class="col-md-12">
+    <h2>Choose your training</h2>
+
+    <div class="row">
+      <div class="col-4">
+        <a href="{% url 'recruit' %}">Recruit</a>
+      </div>
+      <div class="col-4">
+        <a href="{% url 'veteran' %}">Veteran</a>
+      </div>
+      <div class="col-4">
+        <a href="{% url 'champion' %}">Champion</a>
+      </div>
+      <div class="col-4">
+        <a href="{% url 'legend' %}">Legend</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

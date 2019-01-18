@@ -7,6 +7,9 @@
     <h2>Player {{ user.username }}</h2>
 
     <div class="row">
+      {% if request.user.is_authenticated %}
+        <a href="{% url 'battle' user.id %}">Fight !</a>
+      {% endif %}
       <p>List of Decks</p>
       {% for deck in user_decks %}
       <div class="col-4">

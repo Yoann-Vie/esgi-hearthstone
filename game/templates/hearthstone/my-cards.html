@@ -8,7 +8,8 @@
     <a href="{% url 'getCards' %}">Obtenir des cartes (Cost 100 GOLDS)</a>
 
     <div class="row">
-      {% for card in user_cards %}
+      {% for user_card in user_cards %}
+      {% for card in user_card %}
       <div class="col-4">
           <img src="{{ card.img }}" alt="{{ card.name }}">
         {% if card.price != NONE  %}
@@ -16,7 +17,17 @@
         {% else %}
         <a href="{% url 'sellCard' card.id 0 %}">Sell for 0 GOLD</a>
         {% endif %}
+        <form method="post">{% csrf_token %}
+          {{ form.non_field_errors }}
+          <div class="fieldWrapper">
+            {{ form.price.errors }}
+            <label for="{{ form.name.id_for_label }}">Sell in the market for :</label>
+            {{ form.price }}
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
       </div>
+      {% endfor %}
       {% endfor %}
     </div>
   </div>
