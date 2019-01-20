@@ -23,7 +23,8 @@ def recruit(request):
             attack += deck_card.attack
         if deck_card.health is not None:
             health += deck_card.health
-    if attack >= 30 and health >= 20:
+    luck = randint(0, 1)
+    if attack >= 30 and health >= 20 and luck == 0:
         result = 1
         request.user.player.gold += 2
         request.user.save()
@@ -42,7 +43,8 @@ def veteran(request):
             attack += deck_card.attack
         if deck_card.health is not None:
             health += deck_card.health
-    if attack >= 40 and health >= 30:
+    luck = randint(0, 3)
+    if attack >= 40 and health >= 30 and luck == 0:
         result = 1
         request.user.player.gold += 4
         request.user.save()
@@ -61,7 +63,8 @@ def champion(request):
             attack += deck_card.attack
         if deck_card.health is not None:
             health += deck_card.health
-    if attack >= 50 and health >= 40:
+    luck = randint(0, 7)
+    if attack >= 50 and health >= 40 and luck == 0:
         result = 1
         request.user.player.gold += 8
         request.user.save()
@@ -80,7 +83,8 @@ def legend(request):
             attack += deck_card.attack
         if deck_card.health is not None:
             health += deck_card.health
-    if attack >= 60 and health >= 50:
+    luck = randint(0, 15)
+    if attack >= 60 and health >= 50 and luck == 0:
         result = 1
         request.user.player.gold += 16
         request.user.save()
@@ -109,7 +113,8 @@ def battle(request,id=0):
             hisAttack += deck_card.attack
         if deck_card.health is not None:
             hisHealth += deck_card.health
-    if myAttack > hisAttack and myHealth > hisHealth:
+    luck = randint(0, 4)
+    if myAttack > hisAttack and myHealth > hisHealth and luck == 0:
         result = 1
         request.user.player.gold += 20
         request.user.save()

@@ -12,21 +12,29 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from __future__ import unicode_literals
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
+
+import spirit.urls
+
 from game.views import home
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', include('game.urls')),
+    url(r'^', include(spirit.urls)),
 ]
 
-from django.conf import settings
-from django.urls import include, path  # For django versions from 2.0 and up
+from django.contrib.auth.decorators import login_required
+admin.site.login = login_required(admin.site.login)
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
                       path('__debug__/', include(debug_toolbar.urls)),
                   ] + urlpatterns
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,10 +1,28 @@
+from __future__ import unicode_literals
 from django.urls import path
 from django.conf.urls import include, url
 from . import views
 
+import spirit.topic.views
+import spirit.admin.urls
+import spirit.user.urls
+import spirit.search.urls
+import spirit.category.urls
+import spirit.topic.urls
+import spirit.comment.urls
+
+#app_name = 'spirit'
+
 urlpatterns = [
     url(r'^accounts/', include('django_registration.backends.one_step.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^forum/', spirit.topic.views.index_active, name='index'),
+    url(r'^forum/st/admin/', include(spirit.admin.urls)),
+    url(r'^forum/user/', include(spirit.user.urls)),
+    url(r'^forum/search/', include(spirit.search.urls)),
+    url(r'^forum/category/', include(spirit.category.urls)),
+    url(r'^forum/topic/', include(spirit.topic.urls)),
+    url(r'^forum/comment/', include(spirit.comment.urls)),
     path('', views.home, name='home'),
     path('training', views.training, name='training'),
     path('training/recruit', views.recruit, name='recruit'),
