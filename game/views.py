@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from random import randint
 from .models import Card, CardUser, Deck, CardDeck, Historic, Following
-from .forms import DeckForm
+from .forms import DeckForm, CardUserForm
 
 def home(request):
     return render(request, 'hearthstone/index.html', context = { 'title': 'Accueil' })
@@ -28,6 +28,10 @@ def actuality(request):
         users.append(user)
 
     return render(request, 'hearthstone/actuality.html', context = { 'title': 'Actuality', 'users': users, 'actuality': myActuality })
+
+def market(request):
+    cards = CardUser.objects.all().filter(state=1)
+    return render(request, 'hearthstone/market.html', context = { 'title': 'The market', 'cards': cards })
 
 def recruit(request):
     result = 0
@@ -239,8 +243,7 @@ def myCards(request):
     associations = CardUser.objects.all().filter(user_id = request.user.id)
 
     for association in associations:
-        user_card = association.card
-        user_cards.append([user_card,association])
+        user_cards.append(association)
 
     return render(request, 'hearthstone/my-cards.html', { 'title': 'Mes cartes', 'user_cards': user_cards })
 
@@ -248,11 +251,56 @@ def sellCard(request,id=0,price=0):
     if id == 0:
         return redirect('myCards')
 
-    card = Card.objects.get(pk = id)
+    card = CardUser.objects.get(pk = id)
     card.delete()
     request.user.player.gold = request.user.player.gold+price
     request.user.save()
     return redirect('myCards')
+
+def betCard(request,id=0):
+    user_card = CardUser.objects.get(pk = id)
+    card = Card.objects.get(id=user_card.card_id)
+    if request.POST:
+        form_values = request.POST.copy()
+        form_values.update({'user': request.user.id})
+        form_values.update({'card': card.id})
+        form_values.update({'state': 1})
+        form = CardUserForm(form_values,instance=user_card)
+        if form.is_valid():
+            form.save()
+            return redirect('myCards')
+    else:
+        form = CardUserForm(instance=user_card)
+
+    return render(request, 'hearthstone/betCard.html', {'card': card, 'form': form})
+
+def removeCard(request,id=0):
+    if id == 0:
+        return redirect('myCards')
+
+    card = CardUser.objects.get(pk = id)
+    card.amount = 0
+    card.state = 0
+    card.save()
+    return redirect('myCards')
+
+def buyCard(request,id=0):
+    if id == 0:
+        return redirect('market')
+
+    card = CardUser.objects.get(pk = id)
+    user = User.objects.get(id = card.user_id)
+    if (request.user.player.gold >= card.amount):
+        request.user.player.gold = request.user.player.gold-card.amount
+        request.user.save()
+        user.player.gold = user.player.gold+card.amount
+        user.save()
+        card.user_id = request.user.id
+        card.amount = 0
+        card.state = 0
+        card.save()
+
+    return redirect('market')
 
 def myDecks(request):
     user_decks = Deck.objects.all().filter(user_id = request.user.id)

@@ -9,25 +9,19 @@
 
     <div class="row">
       {% for user_card in user_cards %}
-      {% for card in user_card %}
       <div class="col-4">
-          <img src="{{ card.img }}" alt="{{ card.name }}">
-        {% if card.price != NONE  %}
-        <a href="{% url 'sellCard' card.id card.price %}">Sell for {{ card.price }} GOLD</a>
+          <img src="{{ user_card.card.img }}" alt="{{ user_card.card.name }}">
+        {% if user_card.card.price != NONE  %}
+        <a href="{% url 'sellCard' user_card.id user_card.card.price %}">Sell for {{ user_card.card.price }} GOLD</a>
         {% else %}
-        <a href="{% url 'sellCard' card.id 0 %}">Sell for 0 GOLD</a>
+        <a href="{% url 'sellCard' user_card.id 0 %}">Sell for 0 GOLD</a>
         {% endif %}
-        <form method="post">{% csrf_token %}
-          {{ form.non_field_errors }}
-          <div class="fieldWrapper">
-            {{ form.price.errors }}
-            <label for="{{ form.name.id_for_label }}">Sell in the market for :</label>
-            {{ form.price }}
-          </div>
-          <input type="submit" value="Submit" />
-        </form>
+        {% if user_card.state == 0 %}
+        <a href="{% url 'betCard' user_card.id %}">Sell on the market</a>
+        {% else %}
+        <span>On the market. </span> <a href="{% url 'removeCard' user_card.id %}">Remove it</a>
+        {% endif %}
       </div>
-      {% endfor %}
       {% endfor %}
     </div>
   </div>

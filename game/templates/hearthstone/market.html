@@ -1,0 +1,21 @@
+
+{% extends "hearthstone/base.html" %}
+
+{% block content %}
+<div class="row my-5">
+  <div class="col-md-12">
+    <h2>Check all the offers</h2>
+
+    <div class="row">
+      <p>List of the cards</p>
+      {% for card_sell in cards %}
+      <div class="col-4">
+        <img src="{{ card_sell.card.img }}" alt="{{ card_sell.card.name }}">
+        <p>Price : {{ card_sell.amount }} GOLDS <a href="{% url 'buyCard' card_sell.id %}">Buy !</a></p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

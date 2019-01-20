@@ -39,7 +39,7 @@ class Card(models.Model):
 class CardUser(models.Model):
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    price = models.PositiveIntegerField(default=0, blank=True)
+    amount = models.PositiveIntegerField(default=0, blank=True)
     state = models.PositiveIntegerField(default=0, blank=True)
 
 
