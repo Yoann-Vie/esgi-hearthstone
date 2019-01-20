@@ -2,8 +2,7 @@
 {% extends "hearthstone/base.html" %}
 
 {% block content %}
-<div class="row my-5">
-  <div class="col-md-12">
+<div class="container my-4">
     <h2>Créer votre nouveau deck</h2>
     <form method="post">{% csrf_token %}
       {{ form.non_field_errors }}
@@ -19,7 +18,7 @@
         {% for card in deck_cards %}
         <div class="col-4">
           <img src="{{ card.img }}" alt="{{ card.name }}" width="40px">
-          <a href="{% url 'removeCardFromDeck' card.id deck_id %}">Retirer</a>
+          <a href="{% url 'removeCardFromDeck' card.id deck_id %}" class="btn btn-danger">Retirer</a>
         </div>
         {% endfor %}
       </div>
@@ -28,7 +27,7 @@
         {% for card in remaining_cards %}
         <div class="col-4">
           <img src="{{ card.img }}" alt="{{ card.name }}" width="40px">
-          <a href="{% url 'addCardToDeck' card.id deck_id %}">Ajouter</a>
+          <a href="{% url 'addCardToDeck' card.id deck_id %}" class="btn btn-success">Ajouter</a>
         </div>
         {% endfor %}
       </div>
@@ -36,7 +35,6 @@
 
       <input type="submit" value="Submit" />
     </form>
-  </div>
 </div>
 
 {% endblock content %}

@@ -2,8 +2,7 @@
 {% extends "hearthstone/base.html" %}
 
 {% block content %}
-<div class="row my-5">
-  <div class="col-md-12">
+<div class="container my-4">
     <h2>Sell your card on the market</h2>
 
     <div class="row">
@@ -11,6 +10,7 @@
         <img src="{{ card.img }}" alt="{{ card.name }}">
         <p>Base price: {{ card.price }} GOLD</p>
       </div>
+      <div class="col-4">
       <form method="post">{% csrf_token %}
         {{ form.non_field_errors }}
         <div class="fieldWrapper">
@@ -18,10 +18,10 @@
           <label for="{{ form.amount.id_for_label }}">Sell your card for :</label>
           {{ form.amount }} GOLDS
         </div>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" class="btn btn-primary"/>
       </form>
+      </div>
     </div>
   </div>
-</div>
 
 {% endblock content %}

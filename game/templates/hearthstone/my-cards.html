@@ -2,8 +2,7 @@
 {% extends "hearthstone/base.html" %}
 
 {% block content %}
-<div class="row my-5">
-  <div class="col-md-12">
+<div class="container my-4">
     <h2>Voici toutes vos cartes</h2>
     <a href="{% url 'getCards' %}">Obtenir des cartes (Cost 100 GOLDS)</a>
 
@@ -12,19 +11,18 @@
       <div class="col-4">
           <img src="{{ user_card.card.img }}" alt="{{ user_card.card.name }}">
         {% if user_card.card.price != NONE  %}
-        <a href="{% url 'sellCard' user_card.id user_card.card.price %}">Sell for {{ user_card.card.price }} GOLD</a>
+        <a href="{% url 'sellCard' user_card.id user_card.card.price %}" class="btn btn-primary">Sell for {{ user_card.card.price }} GOLD</a>
         {% else %}
-        <a href="{% url 'sellCard' user_card.id 0 %}">Sell for 0 GOLD</a>
+        <a href="{% url 'sellCard' user_card.id 0 %}" class="btn btn-primary">Sell for 0 GOLD</a>
         {% endif %}
         {% if user_card.state == 0 %}
-        <a href="{% url 'betCard' user_card.id %}">Sell on the market</a>
+        <a href="{% url 'betCard' user_card.id %}" class="btn btn-light">Sell on the market</a>
         {% else %}
         <span>On the market. </span> <a href="{% url 'removeCard' user_card.id %}">Remove it</a>
         {% endif %}
       </div>
       {% endfor %}
     </div>
-  </div>
 </div>
 
 {% endblock content %}

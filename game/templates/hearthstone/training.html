@@ -2,25 +2,23 @@
 {% extends "hearthstone/base.html" %}
 
 {% block content %}
-<div class="row my-5">
-  <div class="col-md-12">
+<div class="container my-4">
     <h2>Choose your training</h2>
 
     <div class="row">
       <div class="col-4">
-        <a href="{% url 'recruit' %}">Recruit</a>
+        <a href="{% url 'recruit' %}" class="btn btn-success">Recruit</a>
       </div>
       <div class="col-4">
-        <a href="{% url 'veteran' %}">Veteran</a>
+        <a href="{% url 'veteran' %}" class="btn btn-primary">Veteran</a>
       </div>
       <div class="col-4">
-        <a href="{% url 'champion' %}">Champion</a>
+        <a href="{% url 'champion' %}" class="btn btn-warning">Champion</a>
       </div>
       <div class="col-4">
-        <a href="{% url 'legend' %}">Legend</a>
+        <a href="{% url 'legend' %}" class="btn btn-danger">Legend</a>
       </div>
     </div>
-  </div>
 </div>
 
 {% endblock content %}

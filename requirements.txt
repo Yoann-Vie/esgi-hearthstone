@@ -10,4 +10,5 @@ django-compressor
 django-sass-processor
 django-registration
 django-spirit
+django-bootstrap4
 

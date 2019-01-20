@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'sass_processor',
     'debug_toolbar',
     'webpack_loader',
+    'bootstrap4',
 
     'spirit.core',
     'spirit.admin',

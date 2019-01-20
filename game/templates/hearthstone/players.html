@@ -2,18 +2,16 @@
 {% extends "hearthstone/base.html" %}
 
 {% block content %}
-<div class="row my-5">
-  <div class="col-md-12">
+<div class="container my-4">
     <h2>List of all the players</h2>
 
     <div class="row">
       {% for user in users %}
       <div class="col-4">
-        <a href="{% url 'showPlayer' user.id %}">{{ user.username }}</a>
+        <a href="{% url 'showPlayer' user.id %}" class="btn btn-light">{{ user.username }}</a>
       </div>
       {% endfor %}
     </div>
-  </div>
 </div>
 
 {% endblock content %}
