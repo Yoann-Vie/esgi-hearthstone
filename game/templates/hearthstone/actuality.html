@@ -1,0 +1,26 @@
+
+{% extends "hearthstone/base.html" %}
+
+{% block content %}
+<div class="row my-5">
+  <div class="col-md-12">
+    <h2>Actuality</h2>
+
+    <div class="row">
+      {% for user in users %}
+      <div class="col-4">
+        <h3>{{ user.username }}:</h3>
+        <ul>
+        {% for actual in actuality %}
+          {% if actual.user_id == user.id %}
+            <li>{{ actual.name }}</li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

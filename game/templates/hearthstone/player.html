@@ -7,7 +7,12 @@
     <h2>Player {{ user.username }}</h2>
 
     <div class="row">
-      {% if request.user.is_authenticated %}
+      {% if request.user.is_authenticated and request.user.id != user.id %}
+        {% if followed == 1 %}
+        <p>Followed! <a href="{% url 'unfollow' user.id %}">Unfollow</a></p>
+        {% else %}
+        <a href="{% url 'follow' user.id %}">Follow</a>
+        {% endif %}
         <a href="{% url 'battle' user.id %}">Fight !</a>
       {% endif %}
       <p>List of Decks</p>

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
 from random import randint
-from .models import Card, CardUser, Deck, CardDeck
+from .models import Card, CardUser, Deck, CardDeck, Historic, Following
 from .forms import DeckForm
 
 def home(request):
@@ -10,6 +10,24 @@ def home(request):
 
 def training(request):
     return render(request, 'hearthstone/training.html', context = { 'title': 'The training room' })
+
+def historic(request):
+    myHistoric = Historic.objects.all().filter(user_id = request.user.id)
+    return render(request, 'hearthstone/historic.html', context = { 'title': 'My history', 'historic': myHistoric })
+
+def actuality(request):
+    myFollow = Following.objects.all().filter(user_id = request.user.id)
+
+    myActuality = []
+    users = []
+    for follow in myFollow:
+        hisHistoric = Historic.objects.all().filter(user_id = follow.follow)
+        for history in hisHistoric:
+            myActuality.append(history)
+        user = User.objects.get(id = follow.follow)
+        users.append(user)
+
+    return render(request, 'hearthstone/actuality.html', context = { 'title': 'Actuality', 'users': users, 'actuality': myActuality })
 
 def recruit(request):
     result = 0
@@ -28,6 +46,11 @@ def recruit(request):
         result = 1
         request.user.player.gold += 2
         request.user.save()
+        historic = Historic(name= 'Win Vs AI(Recruit)', user = request.user)
+        historic.save()
+    else:
+        historic = Historic(name= 'Loose Vs AI(Recruit)', user = request.user)
+        historic.save()
 
     return render(request, 'hearthstone/result.html', context = { 'title': 'The training room', 'result': result})
 
@@ -48,6 +71,11 @@ def veteran(request):
         result = 1
         request.user.player.gold += 4
         request.user.save()
+        historic = Historic(name= 'Win Vs AI(Veteran)', user = request.user)
+        historic.save()
+    else:
+        historic = Historic(name= 'Loose Vs AI(Veteran)', user = request.user)
+        historic.save()
 
     return render(request, 'hearthstone/result.html', context = { 'title': 'The training room', 'result': result})
 
@@ -68,6 +96,11 @@ def champion(request):
         result = 1
         request.user.player.gold += 8
         request.user.save()
+        historic = Historic(name= 'Win Vs AI(Champion)', user = request.user)
+        historic.save()
+    else:
+        historic = Historic(name= 'Loose Vs AI(Champion)', user = request.user)
+        historic.save()
 
     return render(request, 'hearthstone/result.html', context = { 'title': 'The training room', 'result': result})
 
@@ -88,6 +121,11 @@ def legend(request):
         result = 1
         request.user.player.gold += 16
         request.user.save()
+        historic = Historic(name= 'Win Vs AI(Legend)', user = request.user)
+        historic.save()
+    else:
+        historic = Historic(name= 'Loose Vs AI(Legend)', user = request.user)
+        historic.save()
 
     return render(request, 'hearthstone/result.html', context = { 'title': 'The training room', 'result': result})
 
@@ -97,6 +135,7 @@ def battle(request,id=0):
     myHealth = 0
     hisAttack = 0
     hisHealth = 0
+    ennemy = User.objects.get(id=id)
     myDeck = Deck.objects.get(user_id = request.user.id,selection=1)
     hisDeck = Deck.objects.get(user_id = id,selection=1)
     myAssociations = CardDeck.objects.all().filter(deck_id =myDeck.id)
@@ -118,8 +157,33 @@ def battle(request,id=0):
         result = 1
         request.user.player.gold += 20
         request.user.save()
+        myHistoric = Historic(name= 'Win Vs '+ennemy.username, user = request.user)
+        hisHistoric = Historic(name= 'Loose Vs '+request.user.username, user = ennemy)
+        myHistoric.save()
+        hisHistoric.save()
+    else:
+        myHistoric = Historic(name= 'Loose Vs '+ennemy.username, user = request.user)
+        hisHistoric = Historic(name= 'Win Vs '+request.user.username, user = ennemy)
+        myHistoric.save()
+        hisHistoric.save()
 
     return render(request, 'hearthstone/result.html', context = { 'title': 'The training room', 'result': result})
+
+def follow(request, id=0):
+    user = User.objects.get(id=id)
+    user_decks = Deck.objects.all().filter(user_id=id)
+    myfollow = Following(follow= id, user = request.user)
+    myfollow.save()
+    followed = 1
+    return render(request, 'hearthstone/player.html', { 'title': 'Page of '+user.username, 'user': user, 'user_decks': user_decks, 'followed': followed })
+
+def unfollow(request, id=0):
+    user = User.objects.get(id=id)
+    user_decks = Deck.objects.all().filter(user_id=id)
+    myfollow = Following.objects.get(follow= id, user = request.user)
+    myfollow.delete()
+    followed = 0
+    return render(request, 'hearthstone/player.html', { 'title': 'Page of '+user.username, 'user': user, 'user_decks': user_decks, 'followed': followed })
 
 def register(request):
     return render(request, 'accounts/register/', context = { 'title': 'Register' })
@@ -131,7 +195,15 @@ def players(request):
 def showPlayer(request,id=0):
     user = User.objects.get(id=id)
     user_decks = Deck.objects.all().filter(user_id=id)
-    return render(request, 'hearthstone/player.html', { 'title': 'Page of '+user.username, 'user': user, 'user_decks': user_decks })
+    followed = 0
+    if request.user.is_authenticated:
+        isfollow = Following.objects.all().filter(follow=id,user=request.user)
+    else:
+        isfollow = []
+    for result in isfollow:
+        followed = 1
+
+    return render(request, 'hearthstone/player.html', { 'title': 'Page of '+user.username, 'user': user, 'user_decks': user_decks, 'followed': followed })
 
 def showPlayerDeck(request,userId=0,deckId=0):
     user = User.objects.get(id=userId)

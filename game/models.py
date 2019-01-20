@@ -15,6 +15,13 @@ class Deck(models.Model):
     def __str__(self):
         return self.name
 
+class Historic(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=250)
+
+class Following(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    follow = models.PositiveIntegerField()
 
 class Card(models.Model):
     name = models.CharField(max_length=100)
