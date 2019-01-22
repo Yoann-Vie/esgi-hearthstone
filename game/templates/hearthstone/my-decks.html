@@ -3,12 +3,13 @@
 
 {% block content %}
 <div class="container pt-4 pb-4">
-    <h2>Voici toutes vos cartes</h2>
+    <h2>Voici tous vos decks</h2>
     <a href="{% url 'newDeck' %}" class="btn btn-primary">Créer un nouveau deck</a>
 
     <div class="row">
       {% for deck in user_decks %}
-      <div class="col-4">
+      <div class="col-4 mt-4">
+        <img src="https://static1.millenium.org/article_old/images/contenu/actus/HearthStone/booster_hearthstone.png" class="deck" alt="">
           <p>{{ deck.name }}</p>
           <a href="{% url 'updateDeck' deck.id %}" class="btn btn-success">Modifier</a>
           <a href="{% url 'deleteDeck' deck.id %}" class="btn btn-danger">Supprimer</a>
