@@ -2,15 +2,15 @@
 {% extends "hearthstone/base.html" %}
 
 {% block content %}
-<div class="container my-4">
+<div class="container pt-4 pb-4">
     <h2>Voici toutes vos cartes</h2>
-    <a href="{% url 'newDeck' %}">Créer un nouveau deck</a>
+    <a href="{% url 'newDeck' %}" class="btn btn-primary">Créer un nouveau deck</a>
 
     <div class="row">
       {% for deck in user_decks %}
       <div class="col-4">
           <p>{{ deck.name }}</p>
-          <a href="{% url 'updateDeck' deck.id %}" class="btn btn-primary">Modifier</a>
+          <a href="{% url 'updateDeck' deck.id %}" class="btn btn-success">Modifier</a>
           <a href="{% url 'deleteDeck' deck.id %}" class="btn btn-danger">Supprimer</a>
         {% if deck.selection == 1 %}
           <span>Sélectionné !</span>

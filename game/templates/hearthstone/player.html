@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="container my-4">
+<div class="container pt-4 pb-4">
     <h2>Player {{ user.username }}</h2>
 
     <div class="row">
@@ -20,14 +20,14 @@
       </div>
         {% endif %}
     </div>
+  <h3>List of Decks</h3>
   <div class="row">
-      <h3>List of Decks</h3>
+    <ul class="mt-2 pl-5">
       {% for deck in user_decks %}
-      <div class="col-4">
-        <a href="{% url 'showPlayerDeck' user.id deck.id %}" class="btn btn-light">{{ deck.name }}</a>
-      </div>
+      <li class="py-2"><a href="{% url 'showPlayerDeck' user.id deck.id %}" class="btn btn-light">{{ deck.name }}</a></li>
       {% endfor %}
-    </div>
+    </ul>
+  </div>
 
 </div>
 

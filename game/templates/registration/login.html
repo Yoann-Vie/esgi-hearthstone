@@ -2,32 +2,32 @@
 
 {% block content %}
 
-<div class="alert alert-warning">
 {% if form.errors %}
+<div class="alert alert-warning">
   <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+</div>
+  {% endif %}
 
 {% if next %}
 {% if user.is_authenticated %}
+<div class="alert alert-warning">
 <p>Your account doesn't have access to this page. To proceed,
   please login with an account that has access.</p>
-{% else %}
-<p>Please login to see this page.</p>
-{% endif %}
-{% endif %}
 </div>
-<div class="container my-4">
+{% endif %}
+{% endif %}
+<div class="container pt-4 pb-4 text-white">
 <form method="post" action="{% url 'login' %}" class="form">
   {% csrf_token %}
   <table>
 
     <tr>
-      <td>{{ form.username.label_tag }}</td>
+      <td class="text-white">{{ form.username.label_tag }}</td>
       <td>{{ form.username }}</td>
     </tr>
 
     <tr>
-      <td>{{ form.password.label_tag }}</td>
+      <td class="text-white">{{ form.password.label_tag }}</td>
       <td>{{ form.password }}</td>
     </tr>
   </table>

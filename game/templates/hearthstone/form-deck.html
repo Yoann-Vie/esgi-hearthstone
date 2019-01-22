@@ -2,7 +2,7 @@
 {% extends "hearthstone/base.html" %}
 
 {% block content %}
-<div class="container my-4">
+<div class="container pt-4 pb-4">
     <h2>Créer votre nouveau deck</h2>
     <form method="post">{% csrf_token %}
       {{ form.non_field_errors }}

@@ -2,11 +2,11 @@
 {% extends "hearthstone/base.html" %}
 
 {% block content %}
-<div class="container my-4">
+<div class="container pt-4 pb-4">
     <h2>Deck "{{ deck.name }}" by {{ user.username }}</h2>
+  <h3>List of the cards</h3>
+    <div class="row mt-4">
 
-    <div class="row">
-      <p>List of the cards</p>
       {% for card in deck_cards %}
       <div class="col-4">
         <img src="{{ card.img }}" alt="{{ card.name }}">

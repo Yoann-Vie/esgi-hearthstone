@@ -2,11 +2,11 @@
 {% extends "hearthstone/base.html" %}
 
 {% block content %}
-<div class="container my-4">
+<div class="container pt-4 pb-4">
     <h2>Voici toutes vos cartes</h2>
-    <a href="{% url 'getCards' %}">Obtenir des cartes (Cost 100 GOLDS)</a>
+    <a href="{% url 'getCards' %}" class="btn btn-primary">Obtenir des cartes (Cost 100 GOLDS)</a>
 
-    <div class="row">
+    <div class="row mt-4">
       {% for user_card in user_cards %}
       <div class="col-4">
           <img src="{{ user_card.card.img }}" alt="{{ user_card.card.name }}">
